@@ -8,6 +8,14 @@
 <!-- ============================================================= -->
 <Configure id="Server" class="org.eclipse.jetty.server.Server">
 
+<New id="sslContextFactory" class="org.eclipse.jetty.util.ssl.SslContextFactory">
+    <Set name="KeyStorePath"><Property name="jetty.ssl.keystore.path" default="." />/etc/newscalex.jks</Set>
+    <Set name="KeyStorePassword"><Property name="jetty.ssl.keystore.password"/>scalextreme</Set>
+    <!--<Set name="KeyManagerPassword"><Property name="jetty.ssl.keymanager.password" default="changeit" /></Set>-->
+    <Set name="TrustStorePath"><Property name="jetty.ssl.truststore.path" default="." />/etc/newscalex.jks</Set>
+    <Set name="TrustStorePassword"><Property name="jetty.ssl.truststore.password"/>scalextreme</Set>
+ </New>
+
   <!-- =========================================================== -->
   <!-- Add a SSL Connector with no protocol factories              -->
   <!-- =========================================================== -->
